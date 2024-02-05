@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Users</title>
+    <style>
+        body {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .user-card {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 10px;
+            transition: transform 0.3s;
+        }
+
+        .user-card:hover {
+            transform: scale(1.1);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Premium Users</h1>
+    {% for id, user in premium_data.items() %}
+        <div class="user-card">
+            <p>ID: {{ id }}</p>
+            <p>Name: {{ user.name }}</p>
+            <img src="{{ user.skin }}" alt="{{ user.name }}'s Skin">
+            <img src="{{ user.head }}" alt="{{ user.name }}'s Head">
+        </div>
+    {% endfor %}
+</body>
+</html>
